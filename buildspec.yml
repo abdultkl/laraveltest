@@ -6,7 +6,7 @@ phases:
       php: 8.3
     commands:
       - echo "Installing dependencies"
-      - sudo apt-get update
+      - sudo apt-get update -y
       - sudo apt-get install nginx
       - sudo apt-get install php8.3-fpm php8.3-mysql php8.3-curl php8.3-gd php8.3-intl php8.3-mbstring php8.3-soap php8.3-xml php8.3-xmlrpc php8.3-zip
       - sudo systemctl start php8.3-fpm
