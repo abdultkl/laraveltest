@@ -7,7 +7,7 @@ phases:
     commands:
       - echo "Installing dependencies"
       - sudo yum update -y
-      - sudo amazon-linux-extras install nginx1
+      - sudo amazon-linux-extras install nginx1 -y
       - sudo yum install php8.3-fpm php8.3-mysql php8.3-curl php8.3-gd php8.3-intl php8.3-mbstring php8.3-soap php8.3-xml php8.3-xmlrpc php8.3-zip
       - sudo systemctl start php8.3-fpm
       - sudo systemctl enable php8.3-fpm
