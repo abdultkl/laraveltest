@@ -1,0 +1,57 @@
+version: 0.1
+
+phases:
+  install:
+    runtime-versions:
+      php: 8.3
+    commands:
+      - echo "Installing dependencies"
+      - sudo apt-get update
+      - sudo apt-get install nginx
+      - sudo apt-get install php8.3-fpm php8.3-mysql php8.3-curl php8.3-gd php8.3-intl php8.3-mbstring php8.3-soap php8.3-xml php8.3-xmlrpc php8.3-zip
+      - sudo systemctl start php8.3-fpm
+      - sudo systemctl enable php8.3-fpm
+      - sudo systemctl status php8.3-fpm
+      - sudo systemctl start nginx
+      - sudo systemctl enable nginx
+      - sudo systemctl status nginxsudo apt-get install -y php-fpm php-mysql php-xml php-mbstring php-zip unzip curl git
+      - composer install --no-dev --prefer-dist --optimize-autoloader
+      - cp .env.example .env
+      - php artisan key:generate
+
+  pre_build:
+    commands:
+      - echo "Pre-build phase"
+
+  build:
+    commands:
+      - echo Build phase: setting up the Laravel application...
+      - php artisan migrate
+      - php artisan config:cache
+      - php artisan route:cache
+      - php artisan view:cache
+      - php artisan db:seed
+
+  post_build:
+    commands:
+      - echo "Post-build phase"
+      - sudo cp -r /var/www/html
+      - sudo chown -R www-data:www-data /var/www/html
+      - sudo chmod -R 755 /var/www/html
+      - sudo systemctl restart nginx
+
+artifacts:
+  files:
+    - "public/**/*"
+    - "resources/**/*"
+    - "routes/**/*"
+    - "storage/**/*"
+    - "vendor/**/*"
+    - "app/**/*"
+    - "bootstrap/**/*"
+    - "config/**/*"
+    - "database/**/*"
+
+cache:
+  paths:
+    - vendor/**/*
