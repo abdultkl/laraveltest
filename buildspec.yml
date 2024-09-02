@@ -7,13 +7,13 @@ phases:
     commands:
       - echo "Installing dependencies"
       - sudo yum update -y
-      - sudo yum install nginx
+      - sudo amazon-linux-extras install nginx1
       - sudo yum install php8.3-fpm php8.3-mysql php8.3-curl php8.3-gd php8.3-intl php8.3-mbstring php8.3-soap php8.3-xml php8.3-xmlrpc php8.3-zip
       - sudo systemctl start php8.3-fpm
       - sudo systemctl enable php8.3-fpm
       - sudo systemctl status php8.3-fpm
-      - sudo systemctl start nginx
-      - sudo systemctl enable nginx
+      - sudo systemctl start nginx1
+      - sudo systemctl enable nginx1
       - sudo systemctl status nginxsudo yum install -y php-fpm php-mysql php-xml php-mbstring php-zip unzip curl git
       - composer install --no-dev --prefer-dist --optimize-autoloader
       - cp .env.example .env
@@ -38,7 +38,7 @@ phases:
       - sudo cp -r /var/www/html
       - sudo chown -R www-data:www-data /var/www/html
       - sudo chmod -R 755 /var/www/html
-      - sudo systemctl restart nginx
+      - sudo systemctl restart nginx1
 
 artifacts:
   files:
