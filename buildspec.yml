@@ -27,15 +27,15 @@ phases:
       - php artisan config:cache
       - php artisan route:cache
       - php artisan view:cache
-      - php artisan db:seed
 
   post_build:
     commands:
       - echo "Post-build phase"
-      - sudo cp -r /var/www/html
-      - sudo chown -R www-data:www-data /var/www/html
-      - sudo chmod -R 755 /var/www/html
-      - sudo systemctl restart nginx1
+      - sudo cp -r ./ /var/www/html/
+      - sudo chown -R nginx:nginx /var/www/html/
+      - sudo chmod -R 755 /var/www/html/
+      - sudo systemctl restart nginx
+      - sudo systemctl restart php-fpm
 
 artifacts:
   files:
