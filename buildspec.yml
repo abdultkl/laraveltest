@@ -8,13 +8,15 @@ phases:
       - echo "Installing dependencies"
       - sudo yum update -y
       - sudo yum install nginx -y
-      - sudo yum install php8.3-fpm php8.3-mysql php8.3-curl php8.3-gd php8.3-intl php8.3-mbstring php8.3-soap php8.3-xml php8.3-xmlrpc php8.3-zip
-      - sudo systemctl start php8.3-fpm
-      - sudo systemctl enable php8.3-fpm
-      - sudo systemctl status php8.3-fpm
+      - sudo amazon-linux-extras install epel -y
+      - sudo yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+      - sudo yum-config-manager --enable remi-php83
+      - echo Installing PHP 8.3 and required extensions...
+      - sudo yum install -y php php-fpm php-mysqlnd php-curl php-gd php-intl php-mbstring php-soap php-xml php-xmlrpc php-zip
+      - sudo systemctl start php-fpm
+      - sudo systemctl enable php-fpm
       - sudo systemctl start nginx1
       - sudo systemctl enable nginx1
-      - sudo systemctl status nginxsudo yum install -y php-fpm php-mysql php-xml php-mbstring php-zip unzip curl git
       - composer install --no-dev --prefer-dist --optimize-autoloader
       - cp .env.example .env
       - php artisan key:generate
