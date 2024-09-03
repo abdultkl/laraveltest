@@ -8,7 +8,7 @@ phases:
       - echo "Installing dependencies"
       - sudo yum update -y
       - sudo yum install nginx -y
-      - sudo yum install -y php php-fpm php-mysqlnd php-curl php-gd php-intl php-mbstring php-soap php-xml php-xmlrpc php-zip
+      - sudo yum install -y php php-fpm php-mysqlnd php-mbstring php-xml
       - echo Installing Composer...
       - curl -sS https://getcomposer.org/installer | php
       - sudo mv composer.phar /usr/local/bin/composer
