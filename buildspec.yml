@@ -34,8 +34,6 @@ phases:
       - sudo cp -r ./ /var/www/html/
       - sudo chown -R nginx:nginx /var/www/html/
       - sudo chmod -R 755 /var/www/html/
-      - sudo systemctl restart nginx
-      - sudo systemctl restart php-fpm
 
 artifacts:
   files:
