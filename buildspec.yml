@@ -8,9 +8,6 @@ phases:
       - echo "Installing dependencies"
       - sudo yum update -y
       - sudo yum install nginx -y
-      - sudo yum install -y epel-release
-      - sudo yum install -y https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-      - sudo yum-config-manager --enable remi-php83
       - sudo yum install -y php php-fpm php-mysqlnd php-curl php-gd php-intl php-mbstring php-soap php-xml php-xmlrpc php-zip
       - echo Installing Composer...
       - curl -sS https://getcomposer.org/installer | php
