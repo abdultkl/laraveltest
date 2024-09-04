@@ -10,5 +10,6 @@ sudo yum install nginx -y
 sudo yum install -y php php-fpm php-mysqlnd php-mbstring php-xml
 
 # Start and enable Nginx
-sudo service nginx restart
+sudo systemctl start nginx
+sudo systemctl restart nginx
 

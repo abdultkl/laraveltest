@@ -30,4 +30,5 @@ server {
 EOL
 
 # Restart Nginx and PHP-FPM to apply changes
-sudo service nginx restart
+sudo systemctl start nginx
+sudo systemctl restart nginx
