@@ -6,7 +6,12 @@ sudo yum update -y
 # Install Nginx
 #sudo yum install nginx -y
 
-sudo amazon-linux-extras install nginx1
+sudo amazon-linux-extras install nginx1 -y
+
+# Start and enable Nginx service
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
 
 # Install PHP and required PHP extensions
 sudo yum install -y php php-fpm php-mysqlnd php-mbstring php-xml
