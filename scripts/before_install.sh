@@ -14,7 +14,7 @@ sudo systemctl enable nginx
 
 
 # Install PHP and required PHP extensions
-sudo yum install -y php php-fpm php-mysqlnd php-mbstring php-xml
+sudo yum install -y php8.3 php-fpm8.3 php-mysqlnd php-mbstring php-xml
 
 # Start and enable Nginx
 sudo systemctl start nginx
