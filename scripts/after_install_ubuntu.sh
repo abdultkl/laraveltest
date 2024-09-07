@@ -11,10 +11,10 @@ sudo systemctl restart mysql
 
 sudo curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php -y
 
-sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer -y
+sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer 
 
 
-sudo composer create-project --prefer-dist laravel/myapp
+sudo composer create-project --prefer-dist laravel/myapp -y
 
 sudo chmod -R 775 /var/www/html/myapp/storage
 sudo chmod -R 775 /var/www/html/myapp/bootstrap/cache
