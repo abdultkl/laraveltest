@@ -12,6 +12,7 @@ sudo systemctl restart mysql
 #sudo curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php -y
 #sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer 
 
+sudo apt install php-bcmath php-ctype php-fileinfo php-json php-mbstring php-openssl php-pdo php-tokenizer php-xml -y
 
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
