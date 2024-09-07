@@ -18,7 +18,7 @@ sudo mv composer.phar /usr/local/bin/composer
 
 cd /var/www/html
 
-sudo composer create-project --prefer-dist laravel/myapp 
+sudo composer create-project --prefer-dist laravel/laravel myapp 
 
 sudo chmod -R 775 /var/www/html/myapp/storage
 sudo chmod -R 775 /var/www/html/myapp/bootstrap/cache
