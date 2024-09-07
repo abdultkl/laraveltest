@@ -9,10 +9,13 @@ sudo systemctl restart php-fpm
 # Ensure MySQL is running
 sudo systemctl restart mysql
 
-sudo curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php -y
+#sudo curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php -y
+#sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer 
 
-sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer 
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
 
+cd /var/www/html
 
 sudo composer create-project --prefer-dist laravel/myapp -y
 
