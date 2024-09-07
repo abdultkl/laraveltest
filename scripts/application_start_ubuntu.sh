@@ -40,7 +40,8 @@
 sudo systemctl start nginx
 
 # Start PHP FPM
-sudo systemctl start php-fpm
+sudo systemctl start php8.3-fpm
+
 
 # Start MySQL
 sudo systemctl start mysql
