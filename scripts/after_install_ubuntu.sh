@@ -1,11 +1,10 @@
-# Install Composer dependencies
-curl -sS https://getcomposer.org/installer | php
-sudo mv composer.phar /usr/local/bin/composer
-sudo composer install --no-dev --prefer-dist --optimize-autoloader
+#!/bin/bash
 
+# Restart NGINX to load the configuration
+sudo systemctl restart nginx
 
-# Set up Laravel environment
-cp .env.example .env
-php artisan key:generate
+# Start the PHP service
+sudo systemctl restart php-fpm
 
-sudo chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
+# Ensure MySQL is running
+sudo systemctl restart mysql
