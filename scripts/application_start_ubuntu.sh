@@ -44,3 +44,8 @@ sudo systemctl start php-fpm
 
 # Start MySQL
 sudo systemctl start mysql
+
+
+cd /var/www/html/myapp
+sudo php artisan optimize:clear
+
