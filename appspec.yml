@@ -10,6 +10,9 @@ hooks:
       timeout: 300
       runas: root
   AfterInstall:
+    - location: scripts/database_start.sh # Create the MySQL database and user
+      timeout: 300
+      runas: root
     - location: scripts/after_install_ubuntu.sh
       timeout: 300
       runas: root

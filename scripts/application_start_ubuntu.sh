@@ -47,5 +47,50 @@ sudo systemctl start php8.3-fpm
 sudo systemctl start mysql
 
 
-# cd /var/www/html/myapp
+ cd /var/www/html/myapp
+
+
+#!/bin/bash
+
+# Define the environment variables in the .env file
+cat <<EOT > /var/www/html/myapp/.env
+APP_NAME=Laravel
+APP_ENV=production
+APP_KEY=base64:your-application-key-here
+APP_DEBUG=false
+APP_URL=http://your-domain-or-ip
+
+LOG_CHANNEL=stack
+
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=mylaraveldb
+DB_USERNAME=abdul
+DB_PASSWORD=abdul123
+
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+SESSION_DRIVER=file
+SESSION_LIFETIME=120
+
+EOT
+
+# Set permissions for the Laravel project directory
+
+sudo chmod -R 775 /var/www/html/myapp/storage
+sudo chmod -R 775 /var/www/html/myapp/bootstrap/cache
+
+# Install dependencies using Composer
+cd /var/www/html/myapp
+
+# Run Laravel migrations
+php artisan migrate --force
+
+# Clear and optimize caches
+
+sudo php artisan optimize:clear
+
+sudo php artisan optimize
+
 
