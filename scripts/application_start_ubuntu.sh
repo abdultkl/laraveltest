@@ -76,13 +76,12 @@ SESSION_LIFETIME=120
 
 EOT
 
-# Set permissions for the Laravel project directory
-
-sudo chmod -R 775 /var/www/html/myapp/storage
-sudo chmod -R 775 /var/www/html/myapp/bootstrap/cache
-
 # Install dependencies using Composer
 cd /var/www/html/myapp
+
+sudo php artisan key:gen -y
+
+sudo php artisan optimize:clear
 
 # Run Laravel migrations
 php artisan migrate --force

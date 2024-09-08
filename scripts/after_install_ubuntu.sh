@@ -30,9 +30,5 @@ sudo chmod -R 775 /var/www/html/myapp/bootstrap/cache
 
 cd /var/www/html/myapp
 sudo cp .env.example .env
-sudo php artisan key:gen -y
 
-sudo php artisan optimize:clear
-
-sudo php artisan optimize
 
