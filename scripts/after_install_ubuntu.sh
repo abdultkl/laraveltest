@@ -22,11 +22,14 @@ cd /var/www/html
 
 sudo composer create-project --prefer-dist laravel/laravel myapp 
 
-sudo chmod -R 775 /var/www/html/myapp/storage
-sudo chmod -R 775 /var/www/html/myapp/bootstrap/cache
+sudo chmod -R 777 /var/www/html/myapp/storage
+sudo chmod -R 777 /var/www/html/myapp/bootstrap/cache
 
 
 cd /var/www/html/myapp
 sudo cp .env.example .env
-sudo php artisan key:generate
+sudo php artisan key:gen
+
+sudo php artisan optimize:clear
+
 
