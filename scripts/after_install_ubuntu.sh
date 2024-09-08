@@ -24,8 +24,11 @@ sudo composer create-project --prefer-dist laravel/laravel myapp
 
 sudo chown -R www-data:www-data /var/www/html/myapp
 
-sudo chmod -R 775 /var/www/html/myapp/storage
-sudo chmod -R 775 /var/www/html/myapp/bootstrap/cache
+sudo chown -R www-data:www-data /var/www/html/myapp/storage
+sudo chown -R www-data:www-data /var/www/html/myapp/bootstrap/cache
+sudo chmod -R 755 /var/www/html/myapp/storage
+sudo chmod -R 755 /var/www/html/myapp/bootstrap/cache
+
 
 
 cd /var/www/html/myapp
