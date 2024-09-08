@@ -79,7 +79,7 @@ EOT
 # Install dependencies using Composer
 cd /var/www/html/myapp
 
-sudo php artisan key:gen -y
+sudo php artisan key:gen --force
 
 sudo php artisan optimize:clear
 
